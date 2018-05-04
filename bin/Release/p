@@ -1,0 +1,3 @@
+cp test_json_tcpip server_B
+
+cp server_B ~ftp

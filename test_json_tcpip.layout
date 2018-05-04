@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="json_batchallocator.h" open="0" top="0" tabpos="0">
+		<Cursor position="568" topLine="0" />
+	</File>
+	<File name="json_internalmap.inl" open="0" top="0" tabpos="0">
+		<Cursor position="16500" topLine="569" />
+	</File>
+	<File name="json_reader.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="301" topLine="0" />
+	</File>
+	<File name="json_value.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="301" topLine="0" />
+	</File>
+	<File name="json_valueiterator.inl" open="0" top="0" tabpos="0">
+		<Cursor position="7592" topLine="253" />
+	</File>
+	<File name="json_writer.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="281" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="1768" topLine="34" />
+	</File>
+	<File name="reader.h" open="0" top="0" tabpos="0">
+		<Cursor position="7475" topLine="168" />
+	</File>
+	<File name="value.h" open="0" top="0" tabpos="0">
+		<Cursor position="35591" topLine="1057" />
+	</File>
+</CodeBlocks_layout_file>
