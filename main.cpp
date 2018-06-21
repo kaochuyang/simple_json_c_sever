@@ -29,9 +29,11 @@ int main()
 //string tail="]";
 
 //"["{   "REGION_ID" : "600901",   "REGION_ID10" : "6009",   "REGION_ID5" : "700901",   "REGION_ID8" : "6009055"}"]";
-    string A="{\"Data\":{\"Name\":\"MichaelChan\",\"Email\":\"XXXX@XXX.com\",\"Phone\":[1234567,0911123456]}}";
-        //="{[\"{ 123456 }"\";
-       // root.toStyledString();
+    string A="{\"Data\":{\"Name\":\"MichaelChan\",\"Email\":\"XXXX@XXX.com\",\"Phone\":[1234567,0911123456]}}\n";
+     string B="{\"Data2\":{\"Name2\":\"MichChan\",\"Email2\":\"XXXX@YYY.com\",\"Phone2\":[1299967,0988823456]}}\n";
+     string C="{\"Data3\":{\"Name3\":\"MichAAAn\",\"Email3\":\"XXXX@ZZZ.com\",\"Phone3\":[12998767,0788823456]}}\n";
+    //="{[\"{ 123456 }"\";
+    // root.toStyledString();
 //
 
     cout<<"\""<<endl;
@@ -40,7 +42,9 @@ int main()
     cout<<A.find("\"")<<endl;
 
 
+  cout <<"hewlooo:"<<fast_writer.write(root)<< endl;
 //
+//printf("origin %s\n",A.c_str());
 //    int count=0;
 //
 //    string str=A;
@@ -63,10 +67,10 @@ int main()
 ////A.replace(A.find("\""),size)
 //    cout<<A.c_str()<<endl;
 //    cout<<"hellp"<<endl;
-////cout<<root["REGION_ID"].asString()<<endl;
-//
+//cout<<root["REGION_ID"].asString()<<endl;
+
 //A="\""+A+"\"";
-//
+
 
 
 //root.as
@@ -121,42 +125,65 @@ int main()
         printf(" bind socket error: %s (errno :%d)\n",strerror(errno),errno);
         return 0;
     }
-
-    //?§vlistenfdvu,6vu04
-    if( listen(listenfd,10) == -1)
-    {
-        printf(" listen socket error: %s (errno :%d)\n",strerror(errno),errno);
-        return 0;
-    }
-
-    printf("====waiting for client's request=======\n");
-    //accept ©Mrecv,ª`·N±µ¦¬¦r²Å¦ê²K¥[?§ô²Å'\0'
     while(1)
     {
+
+        //?§vlistenfdvu,6vu04
+        if( listen(listenfd,10) == -1)
+        {
+            printf(" listen socket error: %s (errno :%d)\n",strerror(errno),errno);
+            return 0;
+        }
+
+        printf("====waiting for client's request=======\n");
+        //accept ©Mrecv,ª`·N±µ¦¬¦r²Å¦ê²K¥[?§ô²Å'\0'
 
         if( (connfd = accept(listenfd, (struct sockaddr *)NULL, NULL))  == -1)
         {
             printf(" accpt socket error: %s (errno :%d)\n",strerror(errno),errno);
             return 0;
         }
-        n = recv(connfd,buff,MAXLINE,0);
-        buff[n] = '\0';
-        printf("\n");
-
-
-        printf("recv msg from client:%s\n",buff);
-        printf("\n");
-        if ( send(connfd,A.c_str(),A.size(),0) <0)
+    int chek=0;
+        while((n=recv(connfd,buff,MAXLINE,0))>0)
         {
-            printf("send msg error: %s(errno :%d)\n",strerror(errno),errno);
-            return 0;
+
+            buff[n] = '\0';
+            printf("\n");
+
+
+            printf("recv msg from client:%s\n",buff);
+            printf("\n");
+if(strncmp(buff,"r0",2)==0)
+            {printf("size=%d\n",A.size());
+            if ( chek=send(connfd,A.c_str(),A.size(),0) <0)
+            {
+                printf("send msg error: %s(errno :%d)\n",strerror(errno),errno);
+                return 0;
+            }
+ printf("send=%d\n",chek);}
+if(strncmp(buff,"r1",2)==0)
+     {
+           sleep(1);
+              printf("%s\n",B.c_str());
+              if ( chek=send(connfd,B.c_str(),B.size(),0) <0)
+            {
+                printf("send msg error: %s(errno :%d)\n",strerror(errno),errno);
+                return 0;
+            }
+             printf("%s\n",C.c_str());}
+if(strncmp(buff,"r2",2)==0){             sleep(1);
+              if ( chek=send(connfd,C.c_str(),C.size(),0) <0)
+            {
+                printf("send msg error: %s(errno :%d)\n",strerror(errno),errno);
+                return 0;
+            }
+            printf("send=%d\n",chek);
+}
+
         }
-        printf("size=%d\n",A.size());
-
-        printf("%s",A.c_str());
-
+        close(connfd);
     }
-    close(connfd);
+
     close(listenfd);
 
 

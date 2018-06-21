@@ -45,6 +45,8 @@
 		<Unit filename="json_value.cpp" />
 		<Unit filename="json_valueiterator.inl" />
 		<Unit filename="json_writer.cpp" />
+		<Unit filename="jsoncpp_to_java.cpp" />
+		<Unit filename="jsoncpp_to_java.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="reader.h" />
 		<Unit filename="value.h" />
